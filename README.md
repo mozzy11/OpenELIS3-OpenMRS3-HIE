@@ -16,12 +16,10 @@ Acces the services at
 <!-- | OpenHIM   |    http://localhost:9000/  |  root@openhim.org : admin | -->
 
 ## Instructions 
-1. Add the necesary Lab Unit permisions to the User      
-Go To `Admin -> User Management -> Select User -> Under "Roles" ,Choose "ALL Lab Units" and select  "All Permissions"`
+1. Enable Importing electronic orders       
+On the new UI , go to
+ `Admin -> General Configurations ->  Order Entry Configuration -> Select "external orders" -> Click "Modify" -> select "True"`
 
-2. Enable Importing electronic orders       
-Go To `Admin -> Order Entry Configuration -> Select "external orders" -> Click "Modify" -> select "True"`
-
-3. Add the Right Test Catalogue ie tests with `Loinc Codes`
+1. Add the Right Test Catalogue ie tests with `Loinc Codes`
 
 see [more](https://i-tech-uw.github.io/healthinformationexchange/lis-workflows/lis-workflows.html#tutorial-lab-order-communication-between-openmrs-and-openelis) for the EMR-LIS communication
