@@ -10,7 +10,7 @@ Acces the services at
 
 | Instance  |     URL       | credentials (user : password)|
 |---------- |:-------------:|------:                       |
-| OpenMRS3   |  https://localhost/openmrs/spa | admin : Admin123 |
+| OpenMRS3   |  http://localhost/openmrs/spa | admin : Admin123 |
 | OpenHIM   |    http://localhost:9000/  |  root@openhim.org : admin |
 | OpenELIS3 | https://localhost/ |    admin : adminADMIN!| 
 

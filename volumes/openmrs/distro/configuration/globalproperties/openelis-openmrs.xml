@@ -2,11 +2,11 @@
     <globalProperties>
         <globalProperty>
             <property>labonfhir.lisUrl</property>
-            <value>http://openhim-core:5001/fhir/</value>
+            <value>http://shr-hapi-fhir:8080/fhir/</value>
         </globalProperty>
         <globalProperty>
             <property>labonfhir.lisUserUuid</property>
-            <value>	6191df3b-c817-446d-85c1-a6a0bbd61b91</value>
+            <value>	</value>
         </globalProperty>
         <globalProperty>
             <property>labonfhir.keystorePath</property>
