@@ -11,8 +11,9 @@ Acces the services at
 | Instance  |     URL       | credentials (user : password)|
 |---------- |:-------------:|------:                       |
 | OpenMRS3   |  http://localhost/openmrs/spa | admin : Admin123 |
-| OpenHIM   |    http://localhost:9000/  |  root@openhim.org : admin |
 | OpenELIS3 | https://localhost/ |    admin : adminADMIN!| 
+| SHR      | https://localhost:8090/fhir  |   | 
+<!-- | OpenHIM   |    http://localhost:9000/  |  root@openhim.org : admin | -->
 
 ## Instructions 
 1. Add the necesary Lab Unit permisions to the User      
