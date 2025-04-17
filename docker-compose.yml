@@ -31,7 +31,7 @@ services:
     certs:
         container_name: oe-certs 
         image: itechuw/certgen:main
-        platform: linux/amd64  
+        #platform: linux/amd64  
         restart: always
         environment:
             - KEYSTORE_PW="kspass"
@@ -64,7 +64,7 @@ services:
     oe.openelis.org:
         container_name: openelisglobal-webapp 
         image: itechuw/openelis-global-2:develop
-        platform: linux/amd64  
+        #platform: linux/amd64  
         depends_on:
             - db.openelis.org
             - fhir.openelis.org
@@ -123,7 +123,7 @@ services:
     frontend.openelis.org:
         image: itechuw/openelis-global-2-frontend:develop
         container_name: openelisglobal-front-end
-        platform: linux/amd64
+        #platform: linux/amd64
         environment:
             - CHOKIDAR_USEPOLLING=true
         logging: *local-logging    
@@ -293,13 +293,37 @@ services:
     shr-hapi-fhir:
         container_name: shr-hapi-fhir
         image: hapiproject/hapi:v5.5.1
+        depends_on:
+            - shr-db
         ports:
-          - "8090:8080"
+            - "8090:8080"
         restart: always
         environment:
-        - hapi.fhir.auto_create_placeholder_reference_targets=true
-        - hapi.fhir.allow_placeholder_references=true
-        - hapi.fhir.allow_external_references=true
+            - hapi.fhir.auto_create_placeholder_reference_targets=true
+            - hapi.fhir.allow_placeholder_references=true
+            - hapi.fhir.allow_external_references=true
+            - hapi.fhir.client_id_strategy=ANY
+            - hapi.fhir.mdm_enabled=false
+            - spring.datasource.url=jdbc:postgresql://shr-db:5432/hapi
+            - spring.datasource.username=admin
+            - spring.datasource.password=admin
+            - spring.datasource.driverClassName=org.postgresql.Driver
+        volumes:
+            - hapi-data:/data/hapi
+
+    shr-db:
+        image: postgres:14.4
+        container_name: hapi-fhir-db
+        restart: always
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_DB: 'hapi'
+            POSTGRES_USER: 'admin'
+            POSTGRES_PASSWORD: 'admin'
+        volumes:
+            - hapi-fhir-db:/var/lib/postgresql/data
+     
                 
 secrets:
   datasource.password:
@@ -317,3 +341,5 @@ volumes:
   keys-vol:
   openmrs-data: 
   omrs-db-data: 
+  hapi-data:
+  hapi-fhir-db:
