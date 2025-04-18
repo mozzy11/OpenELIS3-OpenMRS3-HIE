@@ -86,7 +86,6 @@ services:
             - ./volumes/openelis/logs/oeLogs:/var/lib/openelis-global/logs
             - ./volumes/openelis/logs/tomcatLogs/:/usr/local/tomcat/logs
             - ./volumes/openelis/properties/SystemConfiguration.properties:/var/lib/openelis-global/properties/SystemConfiguration.properties
-            - ./volumes/openelis/properties/TotalSystemConfiguration.properties:/var/lib/openelis-global/properties/TotalSystemConfiguration.properties
             
         secrets:
             - source: datasource.password
