@@ -18,7 +18,7 @@ Acces the services at
 
 ## Instructions 
 
-1. Login in to OpenHIM , Go To Import/Export and manually inport the [Config file here](./volumes/openhim/configs/openhim-config.json)
+1. Login in to OpenHIM , Go To Import/Export and manually import the [Config file here](./volumes/openhim/configs/openhim-config.json)
 
 1. Ensure Add the Right Test Catalogue ie tests with `Loinc Codes`
 
