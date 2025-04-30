@@ -13,7 +13,8 @@ Acces the services at
 | OpenMRS3   |  http://localhost/openmrs/spa | admin : Admin123 |
 | OpenELIS3 | https://localhost/ |    admin : adminADMIN!| 
 | OpenHIM   |    http://localhost:9000/  |  root@openhim.org : openhim-passoword |
-| SHR      | https://localhost:8090/fhir  |   | 
+| SHR      | http://localhost:8090/fhir  |   | 
+| FHIR PipeLine       | http://localhost:8095  |   | 
 
 ## Instructions 
 

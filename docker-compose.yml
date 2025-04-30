@@ -324,6 +324,18 @@ services:
             POSTGRES_PASSWORD: 'admin'
         volumes:
             - hapi-fhir-db:/var/lib/postgresql/data
+
+   # FHIR Pipeline
+    pipeline-controller:
+        image: us-docker.pkg.dev/cloud-build-fhir/fhir-analytics/main:latest
+        container_name: pipeline-controller
+        volumes:
+            - ./volumes/fhirpipes/config:/app/config:ro
+            - ./volumes/fhirpipes/dwh:/dwh
+        environment:
+            - JAVA_OPTS=Xms7g -Xmx7g
+        ports:
+            - '8095:8080'         
      
                 
 secrets:
