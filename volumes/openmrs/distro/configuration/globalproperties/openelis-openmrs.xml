@@ -2,7 +2,7 @@
     <globalProperties>
         <globalProperty>
             <property>labonfhir.lisUrl</property>
-            <value>http://shr-hapi-fhir:8080/fhir/</value>
+            <value>http://openhim-core:5001/fhir/</value>
         </globalProperty>
         <globalProperty>
             <property>labonfhir.lisUserUuid</property>
