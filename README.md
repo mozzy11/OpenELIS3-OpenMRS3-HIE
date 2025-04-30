@@ -12,10 +12,12 @@ Acces the services at
 |---------- |:-------------:|------:                       |
 | OpenMRS3   |  http://localhost/openmrs/spa | admin : Admin123 |
 | OpenELIS3 | https://localhost/ |    admin : adminADMIN!| 
-| OpenHIM   |    http://localhost:9000/  |  root@openhim.org : admin |
+| OpenHIM   |    http://localhost:9000/  |  root@openhim.org : openhim-passoword |
 | SHR      | https://localhost:8090/fhir  |   | 
 
 ## Instructions 
+
+1. Login in to OpenHIM , Go To Import/Export and manually inport the [Config file here](./volumes/openhim/configs/openhim-config.json)
 
 1. Ensure Add the Right Test Catalogue ie tests with `Loinc Codes`
 

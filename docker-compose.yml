@@ -275,7 +275,7 @@ services:
             - ./volumes/openhim/configs/default.json:/usr/share/nginx/html/config/default.json
         depends_on:
             - openhim-core   
-            - openhim-config 
+            # - openhim-config 
         healthcheck:
             test: "curl -sS http://openhim-console || exit 1"
             interval: 10s
@@ -283,12 +283,12 @@ services:
             retries: 3
 
     # Loads Default OpenHIM Config
-    openhim-config:
-        container_name: openhim-config
-        image: itechuw/openhim-config:main
-        #platform: linux/amd64
-        volumes:
-            - ./volumes/openhim/configs/openhim-config.json:/app/test-openhim-config.json
+    # openhim-config:
+    #     container_name: openhim-config
+    #     image: itechuw/openhim-config:main
+    #     platform: linux/amd64
+    #     volumes:
+    #         - ./volumes/openhim/configs/openhim-config.json:/app/test-openhim-config.json
 
     # # Hapi-FHIR -  SHR
     shr-hapi-fhir:
