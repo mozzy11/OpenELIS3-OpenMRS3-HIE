@@ -12,8 +12,8 @@ Acces the services at
 |---------- |:-------------:|------:                       |
 | OpenMRS3   |  http://localhost/openmrs/spa | admin : Admin123 |
 | OpenELIS3 | https://localhost/ |    admin : adminADMIN!| 
+| OpenHIM   |    http://localhost:9000/  |  root@openhim.org : admin |
 | SHR      | https://localhost:8090/fhir  |   | 
-<!-- | OpenHIM   |    http://localhost:9000/  |  root@openhim.org : admin | -->
 
 ## Instructions 
 
