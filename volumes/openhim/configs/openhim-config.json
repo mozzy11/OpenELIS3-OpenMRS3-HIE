@@ -1,5 +1,68 @@
 {
     "Users": [
+      {
+        "groups": [
+          "admin"
+        ],
+        "firstname": "Super",
+        "surname": "User",
+        "email": "root@openhim.org",
+        "passwordAlgorithm": "sha512",
+        "passwordHash": "3d6b43da9421e7388c5091cfb4b8a9c1fd97d7d88a12c8fcf031bee8afc7a7653b8019bb7042a0a9cbb98d5527751df9d209f8ecbdf8b29905d8e64f1b0c9e6d",
+        "passwordSalt": "88e65849aa7f1103798e760fc0dd6602",
+        "expiry": null,
+        "locked": false,
+        "settings": {
+          "visualizer": {
+            "data": {
+              "components": [],
+              "channels": [],
+              "mediators": [],
+              "color": {
+                "inactive": "#cccccc",
+                "active": "#4cae4c",
+                "error": "#d43f3a",
+                "text": "#000000"
+              },
+              "size": {
+                "responsive": true,
+                "width": 1000,
+                "height": 400,
+                "padding": 20
+              },
+              "time": {
+                "updatePeriod": 200,
+                "minDisplayPeriod": 500,
+                "maxSpeed": 5,
+                "maxTimeout": 5000
+              }
+            },
+            "status": 200,
+            "config": {
+              "method": "GET",
+              "transformRequest": [
+                null
+              ],
+              "transformResponse": [
+                null
+              ],
+              "jsonpCallbackParam": "callback",
+              "url": "config/visualizer.json",
+              "headers": {
+                "Accept": "application/json, text/plain, */*",
+                "auth-username": "root@openhim.org",
+                "auth-ts": "2021-08-03T17:14:20.170Z",
+                "auth-salt": "519f3ad7deb57cafe99db3035fa84e55",
+                "auth-token": "b776fe544914ae359c28548c3e513d38a270b8f99096fadaf6e8e4143e419f4646c07b1c82c671e2eb98289f40debce5348ea5efc5ee2a56ff7bf776631a8dbd"
+              }
+            },
+            "statusText": "OK",
+            "xhrStatus": "complete"
+          }
+        },
+        "token": null,
+        "tokenType": null
+      }
     ],
     "Clients": [],
     "Channels": [
