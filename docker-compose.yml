@@ -333,7 +333,7 @@ services:
             - ./volumes/fhirpipes/config:/app/config:ro
             - ./volumes/fhirpipes/dwh:/dwh
         environment:
-            - JAVA_OPTS=Xms7g -Xmx7g
+            - JAVA_OPTS=-Xms7g -Xmx7g
         ports:
             - '8095:8080'         
      
