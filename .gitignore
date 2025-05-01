@@ -19,3 +19,4 @@ bin-release/
 volumes/openelis/logs/oeLogs/*
 volumes/openelis/logs/tomcatLogs/*
 .DS_Store
+volumes/fhirpipes/dwh/*
