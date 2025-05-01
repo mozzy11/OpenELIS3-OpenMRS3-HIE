@@ -162,17 +162,7 @@ services:
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock     
 
-##### OpenMRS3   
-
-    gateway:
-        image: openmrs/openmrs-reference-application-3-gateway:3.3.1
-        container_name: openmrs-proxy
-        restart: "unless-stopped"
-        depends_on:
-            - frontend
-            - backend
-        ports:
-            - "80:80"
+##### OpenMRS3
 
     frontend:
         image: openmrs/openmrs-reference-application-3-frontend:3.3.1
