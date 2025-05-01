@@ -165,7 +165,7 @@ services:
 ##### OpenMRS3   
 
     gateway:
-        image: openmrs/openmrs-reference-application-3-gateway:dev3
+        image: openmrs/openmrs-reference-application-3-gateway:3.3.1
         container_name: openmrs-proxy
         restart: "unless-stopped"
         depends_on:
@@ -175,7 +175,7 @@ services:
             - "80:80"
 
     frontend:
-        image: openmrs/openmrs-reference-application-3-frontend:dev3
+        image: openmrs/openmrs-reference-application-3-frontend:3.3.1
         container_name: openmrs-frontend
         restart: "unless-stopped"
         environment:
@@ -190,7 +190,7 @@ services:
             - backend
 
     backend:
-        image: openmrs/openmrs-reference-application-3-backend:dev3
+        image: openmrs/openmrs-reference-application-3-backend:3.3.1
         container_name: openmrs-backend
         restart: "unless-stopped"
         depends_on:
@@ -275,7 +275,7 @@ services:
             - ./volumes/openhim/configs/default.json:/usr/share/nginx/html/config/default.json
         depends_on:
             - openhim-core   
-            # - openhim-config 
+            - openhim-config 
         healthcheck:
             test: "curl -sS http://openhim-console || exit 1"
             interval: 10s
@@ -283,12 +283,12 @@ services:
             retries: 3
 
     # Loads Default OpenHIM Config
-    # openhim-config:
-    #     container_name: openhim-config
-    #     image: itechuw/openhim-config:main
-    #     platform: linux/amd64
-    #     volumes:
-    #         - ./volumes/openhim/configs/openhim-config.json:/app/test-openhim-config.json
+    openhim-config:
+        container_name: openhim-config
+        image: ghcr.io/digi-uw/openhim-config:v0.0.0
+        platform: linux/amd64
+        volumes:
+            - ./volumes/openhim/configs/openhim-config.json:/app/test-openhim-config.json
 
     # # Hapi-FHIR -  SHR
     shr-hapi-fhir:
