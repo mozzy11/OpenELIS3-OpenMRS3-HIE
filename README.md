@@ -14,7 +14,7 @@ Acces the services at
 | OpenELIS3 | https://localhost/ |    admin : adminADMIN!| 
 | OpenHIM   |    http://localhost:9000/  |  root@openhim.org : openhim |
 | SHR      | http://localhost:8090/fhir  |   | 
-| FHIR PipeLine       | http://localhost:8095  |   | 
+<!-- | FHIR PipeLine       | http://localhost:8095  |   |  -->
 
 ## Instructions 
 

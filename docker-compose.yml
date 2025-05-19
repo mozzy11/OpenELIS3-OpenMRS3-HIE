@@ -31,7 +31,7 @@ services:
     certs:
         container_name: oe-certs 
         image: itechuw/certgen:main
-        #platform: linux/amd64  
+        platform: linux/amd64  
         restart: always
         environment:
             - KEYSTORE_PW="kspass"
@@ -64,7 +64,7 @@ services:
     oe.openelis.org:
         container_name: openelisglobal-webapp 
         image: itechuw/openelis-global-2:3.2.0.1
-        #platform: linux/amd64  
+        platform: linux/amd64  
         depends_on:
             - db.openelis.org
             - fhir.openelis.org
@@ -123,7 +123,7 @@ services:
     frontend.openelis.org:
         image: itechuw/openelis-global-2-frontend:3.2.0.1
         container_name: openelisglobal-front-end
-        #platform: linux/amd64
+        platform: linux/amd64
         environment:
             - CHOKIDAR_USEPOLLING=true
         logging: *local-logging    
@@ -163,9 +163,18 @@ services:
             - /var/run/docker.sock:/var/run/docker.sock     
 
 ##### OpenMRS3
+    gateway:
+        image: openmrs/openmrs-reference-application-3-gateway:dev3
+        container_name: openmrs-proxy
+        restart: "unless-stopped"
+        depends_on:
+            - frontend
+            - backend
+        ports:
+            - "80:80"
 
     frontend:
-        image: openmrs/openmrs-reference-application-3-frontend:3.3.1
+        image: openmrs/openmrs-reference-application-3-frontend:dev3
         container_name: openmrs-frontend
         restart: "unless-stopped"
         environment:
@@ -180,7 +189,7 @@ services:
             - backend
 
     backend:
-        image: openmrs/openmrs-reference-application-3-backend:3.3.1
+        image: openmrs/openmrs-reference-application-3-backend:dev3
         container_name: openmrs-backend
         restart: "unless-stopped"
         depends_on:
@@ -200,7 +209,6 @@ services:
             - ./volumes/openmrs/distro/configuration/globalproperties/openelis-openmrs.xml:/openmrs/distribution/openmrs_config/globalproperties/openelis-openmrs.xml
             - ./volumes/openmrs/modules/labonfhir-1.5.1-SNAPSHOT.omod:/openmrs/distribution/openmrs_modules/labonfhir-1.5.1-SNAPSHOT.omod
             - ./volumes/openmrs/modules/event-2.11.0-SNAPSHOT.omod:/openmrs/distribution/openmrs_modules/event-2.11.0-SNAPSHOT.omod
-            - ./volumes/openmrs/modules/outcomes-1.0.0.omod:/openmrs/distribution/openmrs_modules/outcomes-1.0.0.omod
             - openmrs-data:/openmrs/data
         ports:
             - "8282:8080"            
@@ -319,16 +327,16 @@ services:
             - hapi-fhir-db:/var/lib/postgresql/data
 
    # FHIR Pipeline
-    pipeline-controller:
-        image: us-docker.pkg.dev/cloud-build-fhir/fhir-analytics/main:latest
-        container_name: pipeline-controller
-        volumes:
-            - ./volumes/fhirpipes/config:/app/config:ro
-            - ./volumes/fhirpipes/dwh:/dwh
-        environment:
-            - JAVA_OPTS=-Xms7g -Xmx7g
-        ports:
-            - '8095:8080'         
+    # pipeline-controller:
+    #     image: us-docker.pkg.dev/cloud-build-fhir/fhir-analytics/main:latest
+    #     container_name: pipeline-controller
+    #     volumes:
+    #         - ./volumes/fhirpipes/config:/app/config:ro
+    #         - ./volumes/fhirpipes/dwh:/dwh
+    #     environment:
+    #         - JAVA_OPTS=-Xms7g -Xmx7g
+    #     ports:
+    #         - '8095:8080'         
      
                 
 secrets:
