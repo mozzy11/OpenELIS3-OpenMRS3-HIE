@@ -49,8 +49,8 @@ fhirdata:
   createParquetViews: false
   sinkDbConfigPath: 
   sinkFhirServerUrl: "http://openhim-core:5001/fhir/"
-  sinkUserName: "hapi"
-  sinkPassword: "hapi123"
+  sinkUserName: "OpenMRS"
+  sinkPassword: "admin"
   recursiveDepth: 1
 
 # Enable spring boot actuator end points, use "*" to expose all endpoints, or a comma-separated

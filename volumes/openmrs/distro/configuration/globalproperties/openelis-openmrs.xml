@@ -34,11 +34,11 @@
         </globalProperty>
         <globalProperty>
             <property>labonfhir.userName</property>
-            <value>user</value>
+            <value>OpenMRS</value>
         </globalProperty>
         <globalProperty>
             <property>labonfhir.password</property>
-            <value>password</value>
+            <value>admin</value>
         </globalProperty>
         <globalProperty>
             <property>labonfhir.openmrsPatientIdentifier.uuid</property>
