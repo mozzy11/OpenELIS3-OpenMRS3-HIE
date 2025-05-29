@@ -22,3 +22,6 @@ Acces the services at
 1. Ensure Add the Right Test Catalogue ie tests with `Loinc Codes`
 
 see [more](https://digi-uw.github.io/healthinformationexchange/lis-workflows/lis-workflows.html#tutorial-lab-order-communication-between-openmrs-and-openelis) for the EMR-LIS communication
+
+
+watch the EMR-LIS Exhange [demo video](https://www.youtube.com/watch?v=LsHhDrrlvKw) using the Lab on FHIR module
