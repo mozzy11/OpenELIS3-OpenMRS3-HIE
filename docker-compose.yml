@@ -267,7 +267,7 @@ services:
             - ./volumes/openhim/configs/healthcheck.js:/healthcheck.js
         ports:
             - "8085:8080"
-            # - "5000:5000"
+            - "5000:5000"
             - "5001:5001"
             - "5050:5050"
             - "5051:5051"
