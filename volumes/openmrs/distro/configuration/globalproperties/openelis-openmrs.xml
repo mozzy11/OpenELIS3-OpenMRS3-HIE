@@ -10,19 +10,19 @@
         </globalProperty>
         <globalProperty>
             <property>labonfhir.keystorePath</property>
-            <value>/ssl/lf.keystore</value>
+            <value>/etc/openelis-global/keystore</value>
         </globalProperty>
         <globalProperty>
-            <property>labonfhir.keystorePass</property>
-            <value>testtest</value>
+            <property>labonfhir.keystorepassword</property>
+            <value></value>
         </globalProperty>
         <globalProperty>
             <property>labonfhir.truststorePath</property>
-            <value>/ssl/lf.truststore</value>
+            <value>/etc/openelis-global/truststore</value>
         </globalProperty>
         <globalProperty>
-            <property>labonfhir.truststorePass</property>
-            <value>testtest</value>
+            <property>labonfhir.truststorepassword</property>
+            <value></value>
         </globalProperty>
         <globalProperty>
             <property>labonfhir.activateFhirPush</property>
@@ -30,15 +30,15 @@
         </globalProperty>
         <globalProperty>
             <property>labonfhir.authType</property>
-            <value>Basic</value>
+            <value>BASIC</value>
         </globalProperty>
         <globalProperty>
-            <property>labonfhir.userName</property>
-            <value>OpenMRS</value>
+            <property>labonfhir.username</property>
+            <value></value>
         </globalProperty>
         <globalProperty>
             <property>labonfhir.password</property>
-            <value>admin</value>
+            <value> </value>
         </globalProperty>
         <globalProperty>
             <property>labonfhir.openmrsPatientIdentifier.uuid</property>
@@ -68,6 +68,10 @@
         <globalProperty>
             <property>labonfhir.filterOrderBytestUuids</property>
             <value>false</value>
+        </globalProperty>
+         <globalProperty>
+            <property>labonfhir.filterDemoData</property>
+            <value>true</value>
         </globalProperty>
     </globalProperties>
  </config>   
