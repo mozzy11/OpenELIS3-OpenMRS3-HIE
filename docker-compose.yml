@@ -63,7 +63,7 @@ services:
             
     oe.openelis.org:
         container_name: openelisglobal-webapp 
-        image: itechuw/openelis-global-2:3.2.0.1
+        image: itechuw/openelis-global-2:3.2.0.2
         platform: linux/amd64  
         depends_on:
             - db.openelis.org
@@ -86,6 +86,7 @@ services:
             - ./volumes/openelis/logs/oeLogs:/var/lib/openelis-global/logs
             - ./volumes/openelis/logs/tomcatLogs/:/usr/local/tomcat/logs
             - ./volumes/openelis/properties/SystemConfiguration.properties:/var/lib/openelis-global/properties/SystemConfiguration.properties
+            - ./volumes/openelis/ocl/:/var/lib/openelis-global/ocl
             
         secrets:
             - source: datasource.password
@@ -93,7 +94,8 @@ services:
             
     fhir.openelis.org:
         container_name: external-fhir-api
-        image: hapiproject/hapi:v6.6.0-tomcat
+        image: itechuw/openelis-global-2-fhir:3.2.0.2
+        platform: linux/amd64
         ports:
             - "8081:8080"
             - "8444:8443"
@@ -121,7 +123,7 @@ services:
 
          
     frontend.openelis.org:
-        image: itechuw/openelis-global-2-frontend:3.2.0.1
+        image: itechuw/openelis-global-2-frontend:3.2.0.2
         container_name: openelisglobal-front-end
         platform: linux/amd64
         environment:
@@ -132,7 +134,8 @@ services:
             - oe.openelis.org
 
     proxy:
-        image: nginx:1.15-alpine
+        image: itechuw/openelis-global-2-proxy:3.2.0.2
+        platform: linux/amd64
         container_name: openelisglobal-proxy
         ports:
             # - 80:80
@@ -164,7 +167,7 @@ services:
 
 ##### OpenMRS3
     gateway:
-        image: openmrs/openmrs-reference-application-3-gateway:dev3
+        image: openmrs/openmrs-reference-application-3-gateway:3.5.0
         container_name: openmrs-proxy
         restart: "unless-stopped"
         depends_on:
@@ -174,7 +177,7 @@ services:
             - "80:80"
 
     frontend:
-        image: openmrs/openmrs-reference-application-3-frontend:dev3
+        image: openmrs/openmrs-reference-application-3-frontend:3.5.0
         container_name: openmrs-frontend
         restart: "unless-stopped"
         environment:
@@ -189,7 +192,7 @@ services:
             - backend
 
     backend:
-        image: openmrs/openmrs-reference-application-3-backend:dev3
+        image: openmrs/openmrs-reference-application-3-backend:3.5.0
         container_name: openmrs-backend
         restart: "unless-stopped"
         depends_on:
@@ -202,13 +205,19 @@ services:
             OMRS_CONFIG_CONNECTION_DATABASE: openmrs
             OMRS_CONFIG_CONNECTION_USERNAME: ${OPENMRS_DB_USER:-openmrs}
             OMRS_CONFIG_CONNECTION_PASSWORD: ${OPENMRS_DB_PASSWORD:-openmrs}
+            OMRS_EXTRA_LABONFHIR_KEYSTOREPASSWORD: 
+            OMRS_EXTRA_LABONFHIR_TRUSTSTOREPASSWORD : 
+            OMRS_EXTRA_LABONFHIR_USERNAME: OpenMRS
+            OMRS_EXTRA_LABONFHIR_PASSWORD: admin
         healthcheck:
             test: ["CMD", "curl", "-f", "http://localhost:8080/openmrs"]
             timeout: 5s
         volumes:
             - ./volumes/openmrs/distro/configuration/globalproperties/openelis-openmrs.xml:/openmrs/distribution/openmrs_config/globalproperties/openelis-openmrs.xml
-            - ./volumes/openmrs/modules/labonfhir-1.5.1-SNAPSHOT.omod:/openmrs/distribution/openmrs_modules/labonfhir-1.5.1-SNAPSHOT.omod
-            - ./volumes/openmrs/modules/event-2.11.0-SNAPSHOT.omod:/openmrs/distribution/openmrs_modules/event-2.11.0-SNAPSHOT.omod
+            - ./volumes/openmrs/modules/labonfhir-1.5.3.omod:/openmrs/distribution/openmrs_modules/labonfhir-1.5.3.omod
+            - ./volumes/openmrs/modules/referencedemodata-2.6.0.omod:/openmrs/distribution/openmrs_modules/referencedemodata-2.6.0.omod
+            # - ./volumes/openmrs/ssl/keystore:/etc/openelis-global/keystore
+            # - ./volumes/openmrs/ssl/truststore:/etc/openelis-global/truststore
             - openmrs-data:/openmrs/data
         ports:
             - "8282:8080"            
